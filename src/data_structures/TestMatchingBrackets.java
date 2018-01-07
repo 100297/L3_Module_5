@@ -18,9 +18,26 @@ public class TestMatchingBrackets {
 		assertFalse(doBracketsMatch("}{"));
 	}
 
-	// USE A STACK TO COMPLETE THE METHOD FOR CHECKING IF EVERY OPENING BRACKET HAS A MATCHING CLOSING BRACKET
+	// USE A STACK TO COMPLETE THE METHOD FOR CHECKING IF EVERY OPENING BRACKET HAS
+	// A MATCHING CLOSING BRACKET
 	private boolean doBracketsMatch(String b) {
-		return false;
+		int right = 0;
+		int left = 0;
+		for (int i = 0; i < b.length(); i++) {
+			if (b.substring(i, i + 1).equals("{")) {
+				right++;
+			}
+			if (b.substring(i, i + 1).equals("}") && left < right) {
+				left++;
+			}
+
+		}
+		if (left == right) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 }
